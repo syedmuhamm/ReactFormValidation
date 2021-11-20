@@ -1,5 +1,11 @@
+import React from "react";
+
 const App = () => {
-  return <div>Hello world!</div>;
+  return (
+    <div className="app">
+      <form action=""></form>
+    </div>
+  );
 };
 
 export default App;
