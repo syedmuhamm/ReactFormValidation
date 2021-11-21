@@ -5,6 +5,7 @@ const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
   const { label, onChange, errorMessage, id, ...inputProps } = props;
 
+  //handlefocus function to change input's error if left without following proper rules.
   const handleFocus = (e) => {
     setFocused(true);
   };
