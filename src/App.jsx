@@ -20,19 +20,25 @@ const App = () => {
       name: "username",
       type: "text",
       placeholder: "Username",
+      errorMessage:
+        "Username should be 3-16 characters and shouldn't include any special characters!",
       label: "Username",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
     },
     {
       id: 2,
       name: "email",
-      type: "text",
+      type: "email",
       placeholder: "Email",
+      errorMessage: "Invalid Email address!",
       label: "Email",
+      required: true,
     },
     {
       id: 3,
       name: "birthday",
-      type: "text",
+      type: "date",
       placeholder: "Birthday",
       label: "Birthday",
     },
@@ -41,14 +47,21 @@ const App = () => {
       name: "password",
       type: "password",
       placeholder: "Password",
+      errorMessage:
+        "Password should be be 8-20 characters including 1 letter, 1 number and one special character!",
       label: "Password",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
     },
     {
       id: 5,
       name: "confirmPassword",
       type: "password",
       placeholder: "Confirm Password",
+      errorMessage: "Passwords don't match!",
       label: "Confirm Password",
+      pattern: values.password,
+      required: true,
     },
   ];
   // we will use <form> and its data
@@ -74,6 +87,7 @@ const App = () => {
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
+        <h1>Register</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}
